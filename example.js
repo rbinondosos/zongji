@@ -31,7 +31,15 @@ zongji.on('binlog', function(evt) {
     var a = monitor_tables.filter(e => e == tableName);
     if(a.length)
     {
-      console.log('evt: ',evt);
+
+      var yourscript = exec('php /var/www/html/laravel/artisan sync:dispatcher '+tableName+ ' ' + name + ' ' + evt.rows,
+        (error, stdout, stderr) => {
+            console.log(`${stdout}`);
+            console.log(`${stderr}`);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
       console.log('name: ', name);
       console.log('inside: ',evt);
     }
