@@ -3,12 +3,13 @@ var ZongJi = require('./');
 
 var zongji = new ZongJi({
   host     : 'localhost',
-  user     : 'zongji',
-  password : 'zongji',
+  user     : 'root',
+  password : '',
   // debug: true
 });
 
 zongji.on('binlog', function(evt) {
+  console.log('evt: ',evt);
   evt.dump();
 });
 

@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "nodeunit --reporter=minimal test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "PORT=560 node --inspect=localhost:9229 example.js"
   },
   "repository": {
     "type": "git",
