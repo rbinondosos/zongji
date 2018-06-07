@@ -32,7 +32,7 @@ zongji.on('binlog', function(evt) {
     if(a.length)
     {
 
-      var yourscript = exec('php /var/www/html/laravel/artisan sync:dispatcher '+tableName+ ' ' + name + ' ' + JSON.stringify(evt.rows),
+      var yourscript = exec('php /var/www/html/laravel/artisan sync:dispatcher '+tableName+ ' ' + name + ' \'' + JSON.stringify(evt.rows)+'\'',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
             console.log(`${stderr}`);
