@@ -30,8 +30,7 @@ zongji.on('binlog', function(evt) {
     console.log('tableName: ',tableName);
     if(monitor_tables.indexOf(tableName) != -1)
     {
-      console.log('evt: ',evt);
-      console.log('name: ',evt.constructor.name);
+      console.log('inside: ',evt);
       
     }
   }
