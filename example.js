@@ -28,9 +28,9 @@ zongji.on('binlog', function(evt) {
     }
 
     console.log('tableName: ',tableName);
-    //var a = monitor_tables.filter(e => e == tableName);
-    //if(a.length)
-    //{
+    var a = monitor_tables.filter(e => e == tableName);
+    if(a.length)
+    {
 
       var yourscript = exec('php /var/www/html/laravel/artisan sync:dispatcher '+tableName+ ' ' + name + ' \'' + JSON.stringify(evt.rows)+'\'',
         (error, stdout, stderr) => {
@@ -41,8 +41,8 @@ zongji.on('binlog', function(evt) {
             }
         });
       console.log('name: ', name);
-      console.log('inside: ',evt);
-    //}
+      //console.log('inside: ',evt);
+    }
   }
   
   evt.dump();
