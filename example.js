@@ -1,3 +1,5 @@
+const exec = require('child_process').exec;
+
 // Client code
 var ZongJi = require('./');
 
@@ -7,6 +9,10 @@ var zongji = new ZongJi({
   password : '',
   // debug: true
 });
+
+var monitor_tables = [
+  'review_detail'
+];
 
 zongji.on('binlog', function(evt) {
   var name = evt.constructor.name;
@@ -18,9 +24,13 @@ zongji.on('binlog', function(evt) {
         break;
       }
     }
-    console.log('evt: ',evt);
-    console.log('name: ',evt.constructor.name);
-    console.log('tableName: ',tableName);
+
+    if(monitor_tables.indexOf(tableName) != -1)
+    {
+      console.log('evt: ',evt);
+      console.log('name: ',evt.constructor.name);
+      console.log('tableName: ',tableName);
+    }
   }
   
   evt.dump();
