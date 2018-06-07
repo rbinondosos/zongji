@@ -10,12 +10,12 @@ var zongji = new ZongJi({
 
 zongji.on('binlog', function(evt) {
   console.log('evt: ',evt);
-  console.log('class: ',evt.constructor.name);
+  console.log('evt: ',evt.constructor.name);
   evt.dump();
 });
 
 zongji.start({
-  includeEvents: ['writerows', 'updaterows', 'deleterows']
+  includeEvents: ['tablemap','writerows', 'updaterows', 'deleterows']
 });
 
 process.on('SIGINT', function() {
