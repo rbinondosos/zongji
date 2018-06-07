@@ -9,8 +9,20 @@ var zongji = new ZongJi({
 });
 
 zongji.on('binlog', function(evt) {
-  console.log('evt: ',evt);
-  console.log('evt: ',evt.constructor.name);
+  var name = evt.constructor.name;
+  if(name == 'UpdateRows'){
+    var tableName = '';
+    for(var i in evt.tableMap){
+      if(i == evt.tableId){
+        tableName = evt.tableMap[i].tableName;
+        break;
+      }
+    }
+    console.log('evt: ',evt);
+    console.log('name: ',evt.constructor.name);
+    console.log('tableName: ',tableName);
+  }
+  
   evt.dump();
 });
 
