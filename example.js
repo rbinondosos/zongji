@@ -15,10 +15,10 @@ var monitor_tables = [
 ];
 
 zongji.on('binlog', function(evt) {
-  console.log('evt: ',evt);
+  
   var name = evt.constructor.name;
-  console.log('name: ', name);
-  if(name == 'UpdateRows' || name == 'WriteRows'){
+  
+  if(name == 'UpdateRows' || name == 'WriteRows' || name == 'DeleteRows'){
     var tableName = '';
     for(var i in evt.tableMap){
       if(i == evt.tableId){
@@ -31,6 +31,8 @@ zongji.on('binlog', function(evt) {
     var a = monitor_tables.filter(e => e == tableName);
     if(a.length)
     {
+      console.log('evt: ',evt);
+      console.log('name: ', name);
       console.log('inside: ',evt);
     }
   }
