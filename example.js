@@ -15,6 +15,7 @@ var monitor_tables = [
 ];
 
 zongji.on('binlog', function(evt) {
+  console.log('evt: ',evt);
   var name = evt.constructor.name;
   if(name == 'UpdateRows'){
     var tableName = '';
