@@ -5,7 +5,7 @@ ZongJi (踪迹) is pronounced as `zōng jì` in Chinese.
 
 This package is a "pure JS" implementation based on [`node-mysql`](https://github.com/felixge/node-mysql). Since v0.2.0, The native part (which was written in C++) has been dropped.
 
-This package has been tested to work in MySQL 5.1, 5.5, 5.6, and 5.7. All MySQL server version greater than 5.1.14 are supported.
+This package has been tested to work in MySQL 5.5, 5.6, and 5.7.
 
 ## Quick Start
 
@@ -27,7 +27,7 @@ For a complete implementation see [`example.js`](example.js)...
 
 ## Installation
 
-* Requires Node.js v0.10+
+* Requires Node.js v4+
 
   ```bash
   $ npm install zongji
@@ -124,8 +124,8 @@ Name   | Description
 
 ## Run Tests
 
-* Configure MySQL in `test/settings/mysql.js`
-* Run `npm test`
+* install [Docker](https://www.docker.com/community-edition#download)
+* run `docker-compose up` and then `./docker-test.sh`
 
 ## Reference
 
