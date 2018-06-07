@@ -28,10 +28,10 @@ zongji.on('binlog', function(evt) {
     }
 
     console.log('tableName: ',tableName);
-    if(monitor_tables.indexOf(tableName) != -1)
+    var a = monitor_tables.filter(e => e == tableName);
+    if(a.length)
     {
       console.log('inside: ',evt);
-      
     }
   }
   
