@@ -12,7 +12,8 @@ var zongji = new ZongJi({
 
 var monitor_tables = [
   'review_detail',
-  'review'
+  'review',
+  'rating_option_vote'
 ];
 
 zongji.on('binlog', function(evt) {
